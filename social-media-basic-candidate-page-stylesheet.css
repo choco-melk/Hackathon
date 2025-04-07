@@ -224,6 +224,8 @@ h5 {
   position: fixed;
   right: 0;
   top: 0;
+  display: flex;
+  justify-content: center;
   width: 25%;
   height: 100vh;
   padding: 2em;
@@ -234,10 +236,6 @@ h5 {
     padding: 10px;
     border-radius: 10px;
   }
-}
-
-body * {
-  border: solid 1px red;
 }
 
 @media screen and (max-width: 1224px) {
@@ -272,7 +270,7 @@ body * {
     margin: auto;
     form {
       display: block;
-      margin-left: 30%;
+      margin: auto;
       input {
         width: clamp(300px, 60%, 50ch);
       }
