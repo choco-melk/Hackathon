@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2025 at 10:50 AM
+-- Generation Time: Apr 07, 2025 at 01:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -415,6 +415,87 @@ INSERT INTO `candidate` (`Candidate_ID`, `Ballot_Number`, `Candidate_FirstName`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `candidate_scoresheet`
+--
+
+CREATE TABLE `candidate_scoresheet` (
+  `Candidate_ID` int(11) NOT NULL,
+  `Q1_Score` tinyint(4) NOT NULL,
+  `Q2_Score` tinyint(4) NOT NULL,
+  `Q3_Score` tinyint(4) NOT NULL,
+  `Q4_Score` tinyint(4) NOT NULL,
+  `Q5_Score` tinyint(4) NOT NULL,
+  `Q6_Score` tinyint(4) NOT NULL,
+  `Q7_Score` tinyint(4) NOT NULL,
+  `Q8_Score` tinyint(4) NOT NULL,
+  `Q9_Score` tinyint(4) NOT NULL,
+  `Q10_Score` tinyint(4) NOT NULL,
+  `Q11_Score` tinyint(4) NOT NULL,
+  `Q12_Score` tinyint(4) NOT NULL,
+  `Q13_Score` tinyint(4) NOT NULL,
+  `Q14_Score` tinyint(4) NOT NULL,
+  `Q15_Score` tinyint(4) NOT NULL,
+  `Q16_Score` tinyint(4) NOT NULL,
+  `Q17_Score` tinyint(4) NOT NULL,
+  `Q18_Score` tinyint(4) NOT NULL,
+  `Q19_Score` tinyint(4) NOT NULL,
+  `Q20_Score` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `candidate_scoresheet`
+--
+
+INSERT INTO `candidate_scoresheet` (`Candidate_ID`, `Q1_Score`, `Q2_Score`, `Q3_Score`, `Q4_Score`, `Q5_Score`, `Q6_Score`, `Q7_Score`, `Q8_Score`, `Q9_Score`, `Q10_Score`, `Q11_Score`, `Q12_Score`, `Q13_Score`, `Q14_Score`, `Q15_Score`, `Q16_Score`, `Q17_Score`, `Q18_Score`, `Q19_Score`, `Q20_Score`) VALUES
+(1, 1, 1, -1, 1, -1, -1, 0, 1, 1, 1, -1, 1, 0, -1, -1, 0, 1, 0, 0, 0),
+(2, 1, 0, 0, 0, -1, 1, 0, -1, -1, 0, 0, 1, 0, 0, 1, 1, 0, -1, 0, -1),
+(3, 0, 0, -1, -1, 1, 1, 1, 1, -1, -1, 1, 1, 0, -1, -1, 0, 0, 0, 1, 0),
+(4, 1, 0, -1, 0, -1, -1, 0, 0, 0, 1, -1, -1, -1, 0, 1, 0, 1, 0, 0, 0),
+(5, 1, 0, 1, -1, -1, 1, -1, 0, -1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, -1),
+(6, -1, 1, 0, 0, -1, 0, 0, -1, 1, 0, 1, 1, 1, 0, 1, -1, 1, 0, 0, -1),
+(7, -1, -1, 0, 0, -1, 0, 0, 0, 0, -1, -1, 1, 1, 1, 1, -1, -1, -1, -1, -1),
+(8, 0, 0, -1, 0, 1, -1, 0, -1, 1, 1, 0, 1, -1, -1, 0, 1, 0, -1, 0, 1),
+(9, 1, -1, -1, -1, -1, 0, 1, -1, -1, -1, 0, 0, 0, 1, 0, 1, 0, 0, -1, 0),
+(10, 1, 1, 1, 1, -1, 0, 1, 0, 0, -1, 1, 0, 0, 0, -1, 1, 0, -1, -1, 0),
+(11, 0, 1, 0, -1, 0, -1, 0, 0, 1, 1, 0, 1, 1, -1, 1, 1, 1, 0, -1, 0),
+(12, 1, 0, 1, -1, -1, 0, -1, 0, 1, -1, 1, -1, -1, 0, 1, 0, 0, 0, 1, -1),
+(13, 1, -1, 0, -1, -1, -1, 1, 1, -1, -1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1),
+(14, 1, 1, -1, -1, 0, -1, 0, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, 0, -1, 1),
+(15, 1, 0, 0, 1, 0, 1, 1, 0, -1, 0, 1, 0, 1, 0, 0, -1, -1, 0, 1, 1),
+(16, -1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, -1, 1, 1, -1),
+(17, 1, 0, 1, -1, -1, 0, 0, 1, 1, 0, -1, 0, -1, 0, -1, 0, 1, -1, 0, 1),
+(18, 0, 0, -1, 0, 1, 1, -1, -1, 0, 0, 1, -1, 0, 1, 1, 1, 1, 1, -1, -1),
+(19, 0, -1, -1, 0, 0, 0, -1, 0, -1, 1, -1, -1, -1, 0, 1, 1, 1, 0, 1, 1),
+(20, 1, 0, -1, 1, 1, 1, -1, -1, 1, -1, -1, 0, 1, 1, -1, -1, 0, 0, -1, -1),
+(21, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1, -1, 1, 0, 0, 1, -1, 0, 0, -1, 0),
+(22, 0, 0, 0, -1, -1, -1, 1, 0, 0, 1, 1, 1, 1, 0, 0, -1, 1, 1, -1, 0),
+(23, -1, 0, -1, 1, 0, 1, 1, 0, -1, -1, 1, 0, 1, 0, -1, -1, 0, 1, -1, 0),
+(24, 0, -1, 0, 1, 0, 0, 1, 0, -1, 0, 1, 1, 1, 0, -1, 1, 1, 0, 0, 1),
+(25, -1, -1, 1, -1, -1, -1, 1, -1, 0, 1, 1, 0, 0, 0, -1, 1, -1, 0, -1, 0),
+(26, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, -1, 0, 1, 1, 0, 1, 0, 1, -1),
+(27, -1, 1, 0, 0, -1, 0, -1, 1, 0, 1, 1, 1, -1, 1, -1, 0, 0, -1, 0, -1),
+(28, -1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, 1, 0, 0, 1, 1, 1, -1, 0, 0),
+(29, 1, -1, 1, 0, 1, 0, 0, 1, -1, -1, 0, 0, 0, 0, 1, 1, 0, 0, 1, -1),
+(30, 0, 1, 0, -1, 0, -1, 1, 0, -1, 1, 1, 1, -1, 0, 1, -1, 0, -1, -1, 1),
+(31, 1, 1, 1, -1, -1, -1, 0, 1, 0, 0, 0, 0, -1, 1, -1, 1, 1, 1, -1, 0),
+(32, 0, 1, 0, 1, 0, -1, 1, 0, -1, -1, -1, 0, 0, -1, -1, 1, -1, -1, 1, 0),
+(33, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, -1, -1, 0, -1, 1),
+(34, -1, 0, -1, 0, 0, -1, -1, 1, 1, -1, -1, -1, -1, -1, 0, 0, -1, 1, -1, -1),
+(35, 0, 1, 1, 1, 0, 1, 0, -1, -1, 0, 0, 1, -1, -1, -1, 0, -1, -1, -1, 0),
+(36, 0, 0, -1, 1, -1, 0, -1, -1, 1, 1, -1, 0, -1, 0, 1, -1, 0, 1, -1, -1),
+(37, -1, 1, -1, 0, 1, 0, -1, -1, 0, -1, -1, 0, -1, -1, 0, -1, 1, -1, 0, 1),
+(38, -1, 1, 1, 0, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 0, -1, -1, 0, 1),
+(39, -1, 1, 1, 0, -1, -1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 0, 0, 0, 1),
+(40, 0, -1, -1, 0, -1, -1, 0, -1, 1, 0, 0, -1, 1, 0, -1, 0, -1, -1, 1, 0),
+(41, 0, 1, -1, 1, 0, -1, 0, 0, 0, 1, 0, -1, 1, 0, -1, 0, -1, 1, -1, 1),
+(42, 0, -1, -1, -1, 1, -1, 0, 1, -1, 1, -1, 0, 1, -1, 1, 0, -1, 0, 0, 0),
+(43, -1, -1, 1, -1, 0, 1, -1, 0, -1, 1, 1, -1, 1, -1, 1, -1, -1, 0, -1, 0),
+(44, 1, -1, -1, -1, 1, 0, 1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 1, 1, 1, 0),
+(45, 1, -1, -1, -1, 0, 0, 0, 1, -1, 1, -1, -1, 0, 0, 0, -1, 0, 0, 1, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `committed`
 --
 
@@ -520,7 +601,7 @@ CREATE TABLE `offense` (
 
 --
 -- Dumping data for table `offense`
---  
+--
 
 INSERT INTO `offense` (`Offense_ID`, `Offense_Name`) VALUES
 (1, 'Illegal Possession of Firearms'),
@@ -705,6 +786,12 @@ ALTER TABLE `candidate`
   ADD KEY `Highest_Education_Attained` (`Highest_Education_Attained`);
 
 --
+-- Indexes for table `candidate_scoresheet`
+--
+ALTER TABLE `candidate_scoresheet`
+  ADD PRIMARY KEY (`Candidate_ID`);
+
+--
 -- Indexes for table `committed`
 --
 ALTER TABLE `committed`
@@ -819,6 +906,12 @@ ALTER TABLE `against`
 ALTER TABLE `candidate`
   ADD CONSTRAINT `candidate_ibfk_1` FOREIGN KEY (`Party_ID`) REFERENCES `party_list` (`Party_ID`),
   ADD CONSTRAINT `candidate_ibfk_2` FOREIGN KEY (`Highest_Education_Attained`) REFERENCES `educational_attainment` (`Attainment_ID`);
+
+--
+-- Constraints for table `candidate_scoresheet`
+--
+ALTER TABLE `candidate_scoresheet`
+  ADD CONSTRAINT `candidate_scoresheet_ibfk_1` FOREIGN KEY (`Candidate_ID`) REFERENCES `candidate` (`Candidate_ID`);
 
 --
 -- Constraints for table `committed`
