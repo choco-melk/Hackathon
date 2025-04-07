@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="voting-test-stylesheet.css">
+    <title>For You Page</title>
+</head>
+
+<body id="voting-page"> 
+    <header id="main-header-content">
+        <figure id="logo">
+            <img src="images/placeholder-image.jpg">
+            <h4>Website Name</h4>
+        </figure>
+        <nav>
+            <!-- <div><a href="social-media-page.html" class="dark-button">HOME</a></div> -->
+            <div><a href="index.html" class="dark-button">HOME</a></div>
+            <!-- <div><a href="login.html" class="dark-button">LOGIN</a></div> -->
+        </nav>
+    </header>
+
+    <div id="voting-test-body-container">
+        <section id="start-test">
+            <h2>Political Test</h2><br>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet pharetra tellus, a finibus libero. Nulla facilisi. Maecenas id lectus tortor. Nam faucibus et enim ut gravida. Praesent lacinia at tellus sit amet interdum. Praesent lobortis non lectus id suscipit. Mauris eu erat non risus tempor cursus.</h4><br>
+            <footer>
+                <div id="start-button" class="dark-button">START TEST</div>
+            </footer>
+        </section>
+
+
+        <section id="test-proper">
+            <header>
+                <figure id="advocacy-label">
+                    <img src="images/placeholder-image.jpg">
+                    <figcaption id="advocacy"></figcaption>
+                </figure>
+                <p>Question <span id="question-number"></span> of <span id="question-count"></span></p>
+            </header>
+    
+            <div id="progress-bar">
+                <div id="current-progress"></div>
+            </div>
+    
+            <section id="test-content-body">
+                <section id="question-portion">
+                    <h2 id="question-title"></h2>
+                    <br>
+                    <h5 id="question-body"></h5>
+                    <p id="answer-display-portion"></p>
+                </section>
+                <section id="answer-portion">
+                    <div class="answer-containers">
+                        <div id="yes-button" class="radio-button"></div>
+                        <p>Agree</p>
+                    </div>
+                    <div class="answer-containers">
+                        <div id="neutral-button" class="radio-button"></div>
+                        <p>Neutral</p>
+                    </div>
+                    <div class="answer-containers">
+                        <div id="no-button" class="radio-button"></div>
+                        <p>Disagree</p>
+                    </div>
+                </section>
+            </section> 
+
+            <footer>
+                <div id="prev-button" class="dark-button">← PREV</div>
+                <div id="next-button" class="dark-button">NEXT →</div>
+            </footer>
+        </section>
+
+
+        <section id="additional-information">
+            <header>
+                <figure>
+                    <img src="images/placeholder-image.jpg">
+                    <figcaption>ADDITIONAL INFORMATION</figcaption>
+                </figure>
+                <!-- <p>Part 1 of 3</p> -->
+                <p>Part 1 of 2</p>
+            </header>
+
+            <div id="progress-bar">
+                <div id="current-progress"></div>
+            </div>
+            
+            <section id="additional-information-body-content">
+                <h2>Additional Infomation</h2><br>
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet pharetra tellus, a finibus libero. Nulla facilisi. Maecenas id lectus tortor. Nam faucibus et enim ut gravida. Praesent lacinia at tellus sit amet interdum. Praesent lobortis non lectus id suscipit. Mauris eu erat non risus tempor cursus.</h5><br>
+                
+                <form>
+                    <label>Where are you Voting? (Choose below) </label><br>
+                    <select id="location-selection">
+                        <option>Iloilo City</option>
+                        <option>Malay</option>
+                    </select><br><br>
+
+                    <label>What sector do you support? (Choose below) </label><br>
+                    <select id="occupation-selection">
+                        <option>N/A</option>
+                        <option>Agriculture</option>
+                        <option>Industry</option>
+                        <option>Services</option>
+                        <option>Healthcare</option>
+                        <option>Education</option>
+                        <option>Finance</option>
+                    </select><br><br>
+                </form>
+
+                <footer>
+                    <div id="additional-information-prev-button" class="dark-button">← PREV</div>
+                    <!-- <div id="additional-information-next-button" class="dark-button">NEXT →</div> -->
+                    <div id="additional-information-next-button" class="dark-button">FINISH →</div>
+                </footer>
+
+            </section>
+        </section>
+
+        <!-- <section id="save-data">
+            <header>
+                <figure>
+                    <img src="images/placeholder-image.jpg">
+                    <figcaption>SAVE DATA INFORMATION</figcaption>
+                </figure>
+            </header>
+
+            <div id="progress-bar">
+                <div id="current-progress"></div>
+            </div>
+
+            <section id="save-info-content">
+                <h2>SAVE INFORMATION</h2>
+                <h5>Do you wish to save your data?</h5>
+            </section>
+
+            <div id="no-save-button" class="dark-button">← NO</div>
+            <div id="yes-save-button" class="dark-button">YES →</div>
+
+        </section> -->
+
+        <!-- <section id="account-creation">
+            <header>
+                <figure>
+                    <img src="images/placeholder-image.jpg">
+                    <figcaption>ACCOUNT CREATION</figcaption>
+                </figure>
+                <p>Part 2 of 3</p>
+            </header>
+
+            <div id="progress-bar">
+                <div id="current-progress"></div>
+            </div>
+            
+            <section id="account-creation-body-content">
+                <h2>Account Creation</h2><br>
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet pharetra tellus, a finibus libero. Nulla facilisi. Maecenas id lectus tortor. Nam faucibus et enim ut gravida. Praesent lacinia at tellus sit amet interdum. Praesent lobortis non lectus id suscipit. Mauris eu erat non risus tempor cursus.</h5><br>
+                
+                <form>
+                    <label>Account Name: </label><br>
+                    <input id="name-information" placeholder="Ex. Kentucky Fried Goodness"><br><br>
+                    <label>Password: </label><br>
+                    <input id="password-information" type="password"><br><br>
+                </form>
+
+                <footer>
+                    <div id="creation-prev-button" class="dark-button">← PREV</div>
+                    <div id="creation-finish-button" class="dark-button">Finish →</div>
+                </footer>
+            </section>
+        </section> -->
+
+
+        <section id="finish-test">
+            <header>
+                <figure>
+                    <img src="images/placeholder-image.jpg">
+                    <figcaption>ACCOUNT CREATION</figcaption>
+                </figure>
+                <!-- <p>Part 3 of 3</p> -->
+                <p>Part 2 of 2</p>
+            </header>
+
+            <div id="progress-bar">
+                <div id="current-progress"></div>
+            </div>
+            
+            <section id="finish-test-body-content">
+                <h2>Finished!</h2><br>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet pharetra tellus, a finibus libero. Nulla facilisi. Maecenas id lectus tortor. Nam faucibus et enim ut gravida. Praesent lacinia at tellus sit amet interdum. Praesent lobortis non lectus id suscipit. Mauris eu erat non risus tempor cursus.</h4><br>
+                <a href="index.html"><div id="goto-home-button" class="dark-button">GO TO HOME</div></a>
+            </section>
+        </section>
+    </div>
+</body>
+<script src="voting-test-scripts.js"></script>
+</html>
