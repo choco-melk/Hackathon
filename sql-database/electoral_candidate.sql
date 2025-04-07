@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 -- Database: `electoral_candidate`
 --
 
+CREATE DATABASE Election;
+USE Election;
 -- --------------------------------------------------------
 
 --
