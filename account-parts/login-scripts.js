@@ -12,13 +12,54 @@
 
 // gin-comment ko lang kay amu ni ang nagpa-hold back sa search function hehe
 
-let nameList = [];
+let database = [];
+let candidates = [];
+const point = function(){
+  sleep(10000);
+  console.log("called");
+  setTimeout(function(){}, 20000);
+}
 
-fetch('account-parts//candidate-list.json')
+fetch('database.json')
   .then(response => response.json())
   .then(data => {
-    nameList = data;
+    database = data;
+    for (let x in data){
+      if(data[x]["type"] === "table" && data[x]["name"] === "candidate"){
+        candidates = data[x];
+      }
+    }
+    // console.log(candidates["data"]);
+
+    if(document.getElementById("candidate-gallery") !== null){
+      //display candidates
+      let text = ""
+      for (let x in candidates["data"]) {
+        text += `<figure>
+          <a href="social-media-basic-candidate-page.html" onclick="localStorage.setItem('candidate', '${candidates["data"][x]["Candidate_LastName"]}')">
+            <img src="images/placeholder-image.jpg">
+          </a>
+          <figcaption>${candidates["data"][x]["Candidate_LastName"]}</figcaption>
+        </figure>`;
+        // console.log(nameList[x]);
+      }
+        // text += "</select>"
+      document.getElementById("candidate-gallery").innerHTML = text;
+    }
   });
+
+  // localStorage.setItem("candidate", ${candidates["data"][x]["Candidate_LastName"]})
+
+// let test = "";
+// if (typeof(Storage) !== "undefined") {
+//   // Store
+//   localStorage.setItem("string", "hello");
+//   // Retrieve
+//   test = localStorage.getItem("string");
+// } else {
+//   test = "Sorry, no Web storage support!";
+// }
+console.log(localStorage.getItem("candidate"));
 
 document.getElementById('search-bar').addEventListener('input', function () {
   const query = this.value.toLowerCase();
@@ -54,6 +95,8 @@ document.getElementById('search-bar').addEventListener('input', function () {
     resultsContainer.innerHTML = '<li></li>';
   }
 });
+
+
 
 // let nameList = [];
 
