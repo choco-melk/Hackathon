@@ -85,8 +85,8 @@ a {
   color: inherit;
 }
 h2 {
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 2.2em;
+  line-height: 2.2rem;
 }
 h3 {
   font-size: 2rem;
@@ -194,7 +194,7 @@ h5 {
   
   #candidate-header {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     padding: 2em 3em;
     border-radius: 20px;
     margin: 50px;
@@ -205,28 +205,27 @@ h5 {
       margin-right: 50px;
       border-radius: 50%;
     }
-    #candidate-header-information {
-      div {
-        display: grid;
-        grid-template-columns: 3fr 1fr;
-        align-items: center;
-      }
-      .light-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100px;
-        height: 40px;
-        margin-left: 20px;
-      }
-    }    
-  }          
+    h2 {
+      font-size: 3rem;
+    }
+  } 
+  
+  #stance-container, #stance-list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    >* {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
 
 #other-content-section {
   position: fixed;
   right: 0;
   top: 0;
+  display: flex;
+  justify-content: center;
   width: 25%;
   height: 100vh;
   padding: 2em;
@@ -238,7 +237,6 @@ h5 {
     border-radius: 10px;
   }
 }
-
 
 @media screen and (max-width: 1224px) {
   #main-navigation-section {
@@ -272,7 +270,7 @@ h5 {
     margin: auto;
     form {
       display: block;
-      margin-left: 30%;
+      margin: auto;
       input {
         width: clamp(300px, 60%, 50ch);
       }
@@ -291,6 +289,7 @@ h5 {
 
     .content {
       margin: 30px 0px;
+    
     }
 
     .content-background {
