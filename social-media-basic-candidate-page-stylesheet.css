@@ -192,6 +192,7 @@ h5 {
     h2 {
       font-size: 3rem;
     }
+
     #candidate-header-container {
       display: block;
     }
@@ -381,7 +382,9 @@ h5 {
         font-size: 1.8rem;
       }
     }
-    
+    #candidate-last-name {
+      text-align: center;
+    }
     #candidate-header {
       flex-direction: column;
       align-items: center;
