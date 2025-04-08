@@ -42,6 +42,7 @@ const currentProgress = document.getElementById("current-progress")
 const questionTitle = document.getElementById("question-title");
 const questionBody = document.getElementById("question-body");
 const moreDetailsDisplay = document.getElementById("more-details");
+const answerDisplay = document.getElementById("answer-display");
 const yesButton = document.getElementById("yes-button");
 const noButton = document.getElementById("no-button");
 const neutralButton = document.getElementById("neutral-button");
@@ -168,18 +169,11 @@ function setTestQuestion(number) {
     questionBody.innerText = testQuestions[number - 1].content;
     currentProgress.style.width = ((questionNumber - 1) * statusPercent) + "%";
     moreDetailsDisplay.innerText = "More Details";
-    moreDetailsDisplay.style.textDecoration = "underline    ";
+    moreDetailsDisplay.style.textDecoration = "underline";
+    answerDisplay.innerText = "";
     flushAllRadioButtons();
     if (testQuestions[number - 1].answer !== null) {
         document.getElementById(testQuestions[number - 1].answer + "-button").style.backgroundColor = "#2B2B2B";
-
-        if(testQuestions[number - 1].answer === 1){
-            answerDisplay.innerText = testQuestions[number - 1].yesAnswer;
-        } else if (testQuestions[number - 1].answer === -1){
-            answerDisplay.innerText = testQuestions[number - 1].noAnswer;
-        } else {
-            answerDisplay.innerText = testQuestions[number - 1].neutralAnswer;
-        }
     } else {
         answerDisplay.innerText = "";
     }
@@ -245,12 +239,6 @@ additionalInfoNextButton.addEventListener("click", e => {
 
     // For Candidate Compatibility
     // Put the algo here bro 
-    let user_votes = [];
-    for (let x in testQuestions){
-        user_votes.push(testQuestions[x]["answer"]);
-    }
-    console.log(user_votes);
-    localStorage.setItem("user_votes", JSON.stringify(user_votes));
 });
 
 additionalInfoPrevButton.addEventListener("click", e => {
@@ -307,23 +295,20 @@ yesButton.addEventListener("click", e => {
     e.preventDefault();
     flushAllRadioButtons();
     yesButton.style.backgroundColor = "#2B2B2B";
-    testQuestions[questionNumber - 1].answer = 1;
-    answerDisplay.innerText = testQuestions[questionNumber - 1].yesAnswer;
+    testQuestions[questionNumber - 1].answer = "yes";
 
 });
 noButton.addEventListener("click", e => {
     e.preventDefault();
     flushAllRadioButtons();
     noButton.style.backgroundColor = "#2B2B2B";
-    testQuestions[questionNumber - 1].answer = -1;
-    answerDisplay.innerText = testQuestions[questionNumber - 1].noAnswer;
+    testQuestions[questionNumber - 1].answer = "no";
 });
 neutralButton.addEventListener("click", e => {
     e.preventDefault();
     flushAllRadioButtons();
     neutralButton.style.backgroundColor = "#2B2B2B";
-    testQuestions[questionNumber - 1].answer = 0;
-    answerDisplay.innerText = testQuestions[questionNumber - 1].neutralAnswer;
+    testQuestions[questionNumber - 1].answer = "neutral";
 });
 
 

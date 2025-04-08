@@ -247,6 +247,11 @@ h5, label{
         text-align: center;
         text-decoration: underline;
       }
+      #answer-display {
+        margin: 20px auto 0px;
+        text-align: center;
+        color: red;
+      }
     }
     #answer-portion {
       display: flex;
