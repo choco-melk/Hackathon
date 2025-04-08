@@ -185,7 +185,7 @@ h5 {
   #candidate-gallery {
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 50px;
+    row-gap: 80px;
     column-gap: 30px;
     justify-content: center;
     margin-top: 10px;
