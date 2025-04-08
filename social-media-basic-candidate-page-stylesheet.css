@@ -386,7 +386,7 @@ h5 {
       }
     }
     #candidate-number {
-      margin: 0;
+      margin: 0 auto;
     }
     #candidate-last-name {
       text-align: center;
