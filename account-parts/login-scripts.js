@@ -14,11 +14,15 @@
 
 let database = [];
 let candidates = [];
-const point = function(){
-  sleep(10000);
-  console.log("called");
-  setTimeout(function(){}, 20000);
-}
+let partylists = [];
+let positions = [];
+let runningFor = [];
+let candidate_stances = [];
+let stances = [];
+let education = [];
+let experience = [];
+let committed = [];
+let offense = [];
 
 fetch('database.json')
   .then(response => response.json())
@@ -28,6 +32,34 @@ fetch('database.json')
       if(data[x]["type"] === "table" && data[x]["name"] === "candidate"){
         candidates = data[x];
       }
+      if(data[x]["type"] === "table" && data[x]["name"] === "party_list"){
+        partylists = data[x];
+      }
+      if(data[x]["type"] === "table" && data[x]["name"] === "political_position"){
+        positions = data[x];
+      }
+      if(data[x]["type"] === "table" && data[x]["name"] === "running_for"){
+        runningFor = data[x];
+      }
+      if(data[x]["type"] === "table" && data[x]["name"] === "candidate_scoresheet"){
+        candidate_stances = data[x];
+      }
+      if(data[x]["type"] === "table" && data[x]["name"] === "stance"){
+        stances = data[x];
+      }
+      if(data[x]["type"] === "table" && data[x]["name"] === "educational_attainment"){
+        education = data[x];
+      }
+      if(data[x]["type"] === "table" && data[x]["name"] === "former"){
+        experience = data[x];
+      }
+      if(data[x]["type"] === "table" && data[x]["name"] === "committed"){
+        committed = data[x];
+      }
+      if(data[x]["type"] === "table" && data[x]["name"] === "offense"){
+        offense = data[x];
+      }
+
     }
     // console.log(candidates["data"]);
 
@@ -36,7 +68,7 @@ fetch('database.json')
       let text = ""
       for (let x in candidates["data"]) {
         text += `<figure>
-          <a href="social-media-basic-candidate-page.html" onclick="localStorage.setItem('candidate', '${candidates["data"][x]["Candidate_LastName"]}')">
+          <a href="social-media-basic-candidate-page.html" onclick="localStorage.setItem('candidate', ${x})">
             <img src="images/placeholder-image.jpg">
           </a>
           <figcaption>${candidates["data"][x]["Candidate_LastName"]}</figcaption>
@@ -45,6 +77,68 @@ fetch('database.json')
       }
         // text += "</select>"
       document.getElementById("candidate-gallery").innerHTML = text;
+    }
+
+    if(document.getElementById("candidate-header") !== null){
+      function find(data, category, table){
+        for (let i in table){
+          console.log(category);
+          if (table[i][category] === data){
+            return i;
+          }
+        }
+        return -1;
+      };
+      let x = localStorage.getItem("candidate");
+      document.getElementById("candidate-last-name").innerHTML = `<span id="candidate-number">${candidates["data"][x]["Ballot_Number"]} </span>${candidates["data"][x]["Candidate_LastName"]}`;
+      document.getElementById("candidate-first-name").innerHTML = candidates["data"][x]["Candidate_FirstName"];
+      document.getElementById("candidate-party-list").innerHTML = partylists["data"][find(candidates["data"][x]["Party_ID"], "Party_ID", partylists["data"])]["Party_Name"];
+      document.getElementById("candidate-post").innerHTML = positions["data"][find(runningFor["data"][find(candidates["data"][x]["Candidate_ID"], "Candidate_ID", runningFor["data"])]["Position_ID"], "Position_ID", positions["data"])]["Position_Name"];
+      let candidate_stance = candidate_stances["data"][find(candidates["data"][x]["Candidate_ID"], "Candidate_ID", candidate_stances["data"])];
+      console.log(candidate_stance);
+      let for_text = "";
+      let against_text = "";
+      for (let i = 5; i <= 20; i++){
+        if (candidate_stance[`Q${i}_Score`] == 1){
+          for_text += `${stances["data"][find(`${i-4}`, "Stance_ID", stances["data"])]["Stance_Name"]}<br>`;
+        }else if(candidate_stance[`Q${i}_Score`] == -1){
+          against_text += `${stances["data"][find(`${i-4}`, "Stance_ID", stances["data"])]["Stance_Name"]}<br>`;
+        }
+      }
+      document.getElementById("for-stances").innerHTML = for_text;
+      document.getElementById("against-stances").innerHTML = against_text;
+      document.getElementById("candidate-education-list").innerHTML = education["data"][find(candidates["data"][x]["Highest_Education_Attained"], "Attainment_Level", education["data"])]["Attainment_Name"];
+      let family_text = "";
+      for(let i in candidates["data"][x]["Family_In_Office"]){
+        family_text += `${candidates["data"][x]["Family_In_Office"][i]}<br>`;
+      }
+      if (family_text == ""){
+        family_text += "None<br>";
+      }
+      document.getElementById("candidate-family-members-list").innerHTML = family_text;
+      let experience_text = "";
+      for(let i in experience["data"]){
+        if (experience["data"][i]["Candidate_ID"] - 1 == x){
+          experience_text += `${positions["data"][find(experience["data"][i]["Position_ID"], "Position_ID", positions["data"])]["Position_Name"]}`;
+        }
+      }
+      if (experience_text == ""){
+        experience_text += "None<br>";
+      }
+      document.getElementById("candidate-experience-list").innerHTML = experience_text;
+      let committed_text = "";
+      for(let i in committed["data"]){
+        console.log(committed["data"][i]["Candidate_ID"]);
+        console.log("-"+x);
+        if (committed["data"][i]["Candidate_ID"] - 1 == x){
+          console.log(committed["data"][i]["Offense_ID"]);
+          committed_text += `${offense["data"][find(committed["data"][i]["Offense_ID"], "Offense_ID", offense["data"])]["Offense_Name"]}`;
+        }
+      }
+      if (committed_text == ""){
+        committed_text += "None<br>";
+      }
+      document.getElementById("candidate-criminal-history-list").innerHTML = committed_text;
     }
   });
 
@@ -66,16 +160,19 @@ document.getElementById('search-bar').addEventListener('input', function () {
   const resultsContainer = document.getElementById('results');
   resultsContainer.innerHTML = '';
 
-  const filtered = nameList.filter(name =>
-    name.toLowerCase().includes(query)
+  const filtered = candidates["data"].filter(candidate =>
+    candidate["Candidate_LastName"].concat(", ", candidate["Candidate_FirstName"]).toLowerCase().includes(query)
   );
 
   const limitResult = filtered.slice(0, 5);
 
 //for limited results
-  limitResult.forEach(name => {
+  limitResult.forEach(candidate => {
     const li = document.createElement('li');
-    li.textContent = name;
+    // li.textContent = candidate["Candidate_LastName"].concat(", ", candidate["Candidate_FirstName"]);
+    li.innerHTML = `<a href="social-media-basic-candidate-page.html" onclick="localStorage.setItem('candidate', ${candidate["Candidate_ID"]-1})">
+            ${candidate["Candidate_LastName"].concat(", ", candidate["Candidate_FirstName"])}
+          </a>`;
     resultsContainer.style.width='max-content';
     resultsContainer.style.paddingRight='30px';
     resultsContainer.appendChild(li);
