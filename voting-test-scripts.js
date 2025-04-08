@@ -169,9 +169,9 @@ function setTestQuestion(number) {
     if (testQuestions[number - 1].answer !== null) {
         document.getElementById(testQuestions[number - 1].answer + "-button").style.backgroundColor = "#2B2B2B";
 
-        if(testQuestions[number - 1].answer === "yes"){
+        if(testQuestions[number - 1].answer === 1){
             answerDisplay.innerText = testQuestions[number - 1].yesAnswer;
-        } else if (testQuestions[number - 1].answer === "no"){
+        } else if (testQuestions[number - 1].answer === -1){
             answerDisplay.innerText = testQuestions[number - 1].noAnswer;
         } else {
             answerDisplay.innerText = testQuestions[number - 1].neutralAnswer;
@@ -236,6 +236,12 @@ additionalInfoNextButton.addEventListener("click", e => {
 
     // For Candidate Compatibility
     // Put the algo here bro 
+    let user_votes = [];
+    for (let x in testQuestions){
+        user_votes.push(testQuestions[x]["answer"]);
+    }
+    console.log(user_votes);
+    localStorage.setItem("user_votes", JSON.stringify(user_votes));
 });
 
 additionalInfoPrevButton.addEventListener("click", e => {
@@ -292,7 +298,7 @@ yesButton.addEventListener("click", e => {
     e.preventDefault();
     flushAllRadioButtons();
     yesButton.style.backgroundColor = "#2B2B2B";
-    testQuestions[questionNumber - 1].answer = "yes";
+    testQuestions[questionNumber - 1].answer = 1;
     answerDisplay.innerText = testQuestions[questionNumber - 1].yesAnswer;
 
 });
@@ -300,14 +306,14 @@ noButton.addEventListener("click", e => {
     e.preventDefault();
     flushAllRadioButtons();
     noButton.style.backgroundColor = "#2B2B2B";
-    testQuestions[questionNumber - 1].answer = "no";
+    testQuestions[questionNumber - 1].answer = -1;
     answerDisplay.innerText = testQuestions[questionNumber - 1].noAnswer;
 });
 neutralButton.addEventListener("click", e => {
     e.preventDefault();
     flushAllRadioButtons();
     neutralButton.style.backgroundColor = "#2B2B2B";
-    testQuestions[questionNumber - 1].answer = "neutral";
+    testQuestions[questionNumber - 1].answer = 0;
     answerDisplay.innerText = testQuestions[questionNumber - 1].neutralAnswer;
 });
 
