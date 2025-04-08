@@ -242,9 +242,10 @@ h5, label{
       p {
         width: 80%;
       }
-      #answer-display-portion {
+      #more-details {
         margin: 20px auto 0px;
         text-align: center;
+        text-decoration: underline;
       }
     }
     #answer-portion {
