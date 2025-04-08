@@ -185,28 +185,38 @@ h5 {
     margin: 50px;
     background-color: #2B2B2B;
     img {
-      width: 200px;
-      height: 200px;
-      margin-right: 50px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
     }
     h2 {
       font-size: 3rem;
     }
+    #candidate-header-container {
+      display: flex;
+      justify-content: left;
+
+    }
     #candidate-number {
-      display: inline-flex;
+      display: flex;
       justify-content: center;
       align-items: center;
       width: 70px;
       height: 70px;
       border-radius: 50%;
       background-color: #0A0A0A ;
+      font-size: 1.7rem;
+      font-weight: var(--bold);
+      margin: 0px 20px 10px 0px;
     }
-    #candidate-first-name {
+    p {
       font-size: 1.5rem;
-      padding-left: 3rem;
     }
   } 
+ 
+  #candidate-post {
+    font-weight: var(--bold);
+  }
   
   #stance-container, #stance-list-container {
     display: grid;
@@ -314,7 +324,7 @@ h5 {
 
     #candidate-header {
       display: flex;
-      justify-content: left;
+      justify-content: space-around;
       padding: 1em;
       margin: 0px;
       margin-top: 30px;
@@ -330,9 +340,10 @@ h5 {
       #candidate-header-information {
         div {
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
           align-items: center;
         }
+
         .light-button {
           display: flex;
           justify-content: center;
@@ -382,5 +393,10 @@ h5 {
         margin: 20px 0;
       }
     }
+    #candidate-header-information {
+      div {
+       justify-items: center;
+      }
+    }    
   }
 } 
