@@ -55,8 +55,7 @@ const occupationInfo = document.getElementById("occupation-selection");
 /* Button Properties and Functions */
 const testQuestions = [
     new TestQuestion(1,
-        "Would you vote for a candidate that is a part of a political dynasty?\
-        \nExplanation: A political dynasty is formed when a family maintains power by securing multiple government positions across several generations (Albert et al., 2016).",
+        "Would you vote for a candidate that is a part of a political dynasty?",
         "Agree", "Disagree", "Neutral", 
         "Political Dynasty"),
     new TestQuestion(2,
@@ -64,93 +63,75 @@ const testQuestions = [
         "Agree", "Disagree", "Neutral", 
         "Education"),
     new TestQuestion(3,
-        "Would you vote for a candidate with prior government experience?\
-        \nExplanation: This question refers to candidates who have already served as a government official.",
+        "Would you vote for a candidate with prior government experience?",
         "Agree", "Disagree", "Neutral", 
         "Political Experience"),
     new TestQuestion(4,
-        "Would you vote for a candidate with proven criminal records?\
-        \nExplanation: This question refers to candidates that have been convicted of crimes such as graft or plunder.",
+        "Would you vote for a candidate with proven criminal records?",
         "Agree", "Disagree", "Neutral", 
         "Criminal Record"),
     new TestQuestion(5,
-        "Should the government promote gender equality?\
-        \nExplanation: Gender equality is society's equal valuation of the similarities and differences between men and women, as well as the roles they play (UNICEF, 2017).",
+        "Should the government promote gender equality?",
         "Agree", "Disagree", "Neutral", 
         "Gender Equality"),
     new TestQuestion(6,
-        "Should the government implement the SOGIE Bill?\
-        \nExplanation: The SOGIE Bill recognizes the fundamental rights of all people, regardless of sexual orientation or gender identity (Amnesty Philippines, 2023).",
+        "Should the government implement the SOGIE Bill?",
         "Agree", "Disagree", "Neutral", 
         "Human Rights"),
     new TestQuestion(7,
-        "Should the government increase protection for indigenous people?\
-        \nExplanation: This question refers to tribal communities that are the original inhabitants of the land they share ancestral ties with; indigenous people are referred to as Igorot in Luzon or Lumad in Mindanao (Minority Rights Group, 2024).",
+        "Should the government increase protection for indigenous people?",
         "Agree", "Disagree", "Neutral", 
         "Indigenous People Protection"),
     new TestQuestion(8,
-        "Should the government legalize divorce in the country?\
-        \nExplanation: A divorce or dissolution of marriage is a court order declaring that a valid marriage no longer exists, leaving both parties free to remarry (American Bar Association, 2020).",
+        "Should the government legalize divorce in the country?",
         "Agree", "Disagree", "Neutral", 
         "Divorce Legalization"),
     new TestQuestion(9,
-        "Should the government legalize induced abortion in the country?\
-        \nExplanation: Induced abortion is a procedure to terminate a pregnancy that can be performed through medication or surgery (MedlinePlus, n.d.).",
+        "Should the government legalize induced abortion in the country?",
         "Agree", "Disagree", "Neutral", 
         "Abortion Legalization"),
     new TestQuestion(10,
-        "Should the government provide more benefits for senior citizens and persons with disabilities?\
-        \nExplanation: A senior citizen is defined as any person aged sixty years or older (PSA, 2019), while persons with disabilities are those who have long-term physical, mental, intellectual, or sensory impairments that prevent their full and effective participation in society (UNHCR, 2024).",
+        "Should the government provide more benefits for senior citizens and persons with disabilities?",
         "Agree", "Disagree", "Neutral", 
         "Senior Citizens and PWD Benefits"),
     new TestQuestion(11,
-        "Should the government increase protection for overseas Filipino workers?\
-        \nExplanation: Overseas Filipino Workers, or OFWs, are Filipino migrants who have left their homes to work abroad and support their families (Eugenio, 2023).",
+        "Should the government increase protection for overseas Filipino workers?",
         "Agree", "Disagree", "Neutral", 
         "OFW Protection"),
     new TestQuestion(12,
-        "Should the government increase the budget for the education sector?\
-        \nExplanation: This initiative will result in increased funding for public schools and universities, allowing them to provide better learning experiences for students.",
+        "Should the government increase the budget for the education sector?",
         "Agree", "Disagree", "Neutral", 
         "Education"),
     new TestQuestion(13,
-        "Should the government protect and empower the agriculture sector?\
-        \nExplanation: This initiative has the following implications: the lands and waters where agricultural workers make a living will be protected from private ownership, and agricultural workers will be supported through laws and subsidies.",
+        "Should the government protect and empower the agriculture sector?",
         "Agree", "Disagree", "Neutral", 
         "Agriculture"),
     new TestQuestion(14,
-        "Should the government prioritize public transportation over private transportation?\
-        \nExplanation: This initiative will result in cheaper and better public transportation, which will provide service to substantially more people).",
+        "Should the government prioritize public transportation over private transportation?",
         "Agree", "Disagree", "Neutral", 
         "Public Transportation"),
     new TestQuestion(15,
-        "Should the government provide better free healthcare to those in need?\
-        \nExplanation: This initiative aims to provide all people with access to the full range of quality health services they require, wherever and whenever it's needed, without financial hardship (WHO, 2025).",
+        "Should the government provide better free healthcare to those in need?",
         "Agree", "Disagree", "Neutral", 
         "Healthcare"),
     new TestQuestion(16,
-        "Should the government increase the minimum wage and ban contractualization/end of contract?\
-        \nExplanation: Contractualization is defined as the employment practice of hiring workers on fixed-term contracts, which some employers use in such a way where workers won't qualify as regular employees and thus lack the right to regular benefits (Luciano, 2023).",
+        "Should the government increase the minimum wage and ban contractualization/end of contract?",
         "Agree", "Disagree", "Neutral", 
         "Working Conditions"),
     new TestQuestion(17,
-        "Should the government impose stricter regulations on foreign corporations operating in the country?\
-        \nExplanation: This initiative will further reduce foreign involvement and ownership in key sectors of the country.", 
+        "Should the government impose stricter regulations on foreign corporations operating in the country?",
         "Agree", "Disagree", "Neutral", 
         "Foreign Regulations"),
     new TestQuestion(18,
-        "Should the government promote environmental conservation and sustainable development?\
-        Explanation: Environmental conservation aims to protect the environment from the threats of pollution and climate change, while sustainable development aims to advance the type of growth that satisfies current needs while not jeopardizing the capacity of future generations to satisfy their own (IJSR, 2024).",
+        "Should the government promote environmental conservation and sustainable development?",
         "Agree", "Disagree", "Neutral", 
         "Environment and Development"),
     new TestQuestion(19,
-        "Should the government invest more in strengthening the military forces of the country?\
-        \nExplanation: This initiative aims to increase the military's budget and resources.",
+        "Should the government invest more in strengthening the military forces of the country?",
         "Agree", "Disagree", "Neutral", 
         "Strengthening of the Military "),
     new TestQuestion(20,
-        "Should the government continue its militant approach to the war on drugs?\
-        Explanation: The initiative implies that the police’s use of aggressive force with zero tolerance remains as the government’s main solution to the war on drugs.",
+        "Should the government continue its militant approach to the war on drugs?",
         "Agree", "Disagree", "Neutral", 
         "War on Drugs")                          
 ];
