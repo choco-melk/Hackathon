@@ -24,6 +24,16 @@ let experience = [];
 let committed = [];
 let offense = [];
 
+function find(data, category, table){
+  for (let i in table){
+    console.log(category);
+    if (table[i][category] === data){
+      return i;
+    }
+  }
+  return -1;
+};
+
 fetch('database.json')
   .then(response => response.json())
   .then(data => {
@@ -64,31 +74,70 @@ fetch('database.json')
     // console.log(candidates["data"]);
 
     if(document.getElementById("candidate-gallery") !== null){
-      //display candidates
-      let text = ""
-      for (let x in candidates["data"]) {
-        text += `<figure>
-          <a href="social-media-basic-candidate-page.html" onclick="localStorage.setItem('candidate', ${x})">
-            <img src="images/placeholder-image.jpg">
-          </a>
-          <figcaption>${candidates["data"][x]["Candidate_LastName"]}</figcaption>
-        </figure>`;
-        // console.log(nameList[x]);
+      if(localStorage.getItem("user_votes")){
+        let user_votes = JSON.parse(localStorage.getItem("user_votes"));
+        let user_vote_count = user_votes.length;
+        for (let i in user_votes){
+          if (user_votes[i] == 0){
+            user_vote_count--;
+          }
+        }
+        let compatibility = [];
+        for (let x in candidates["data"]) {
+          let unparsed_votes = candidate_stances["data"][find(candidates["data"][x]["Candidate_ID"], "Candidate_ID", candidate_stances["data"])];
+          let candidate_votes = [];
+          let sumprod_votes = 0;
+          let candidate_compatibility = 0;
+          for (let i = 1; i <= 20; i++){
+            candidate_votes.push(parseInt(unparsed_votes[`Q${i}_Score`]));
+          }
+          for (let i in candidate_votes){
+            sumprod_votes += user_votes[i] * candidate_votes[i];
+          }
+          candidate_compatibility = (sumprod_votes/user_vote_count + 1)/2;
+          compatibility.push({
+            "Candidate_ID": candidates["data"][x]["Candidate_ID"],
+            "Candidate_Votes": candidate_votes,
+            "Total_Combined_Votes": sumprod_votes,
+            "Candidate_Compatibility": candidate_compatibility
+          });
+        }
+        compatibility.sort(function(a, b){return a["Candidate_Compatibility"] - b["Candidate_Compatibility"]});
+        compatibility.reverse();
+        let text = ""
+        for (let x in compatibility) {
+          text += `<figure>
+            <a href="social-media-basic-candidate-page.html" onclick="localStorage.setItem('candidate', ${compatibility[x]["Candidate_ID"] - 1})">
+              <img src="images/placeholder-image.jpg">
+            </a>
+            <figcaption>
+              ${candidates["data"][compatibility[x]["Candidate_ID"] - 1]["Candidate_LastName"]}<br>
+              Compatibility: ${(compatibility[x]["Candidate_Compatibility"] * 100).toFixed(2)}%
+            </figcaption>
+          </figure>`;
+          // console.log(nameList[x]);
+        }
+          // text += "</select>"
+        document.getElementById("candidate-gallery").innerHTML = text;
+      }else{
+        //display candidates
+        let text = ""
+        for (let x in candidates["data"]) {
+          text += `<figure>
+            <a href="social-media-basic-candidate-page.html" onclick="localStorage.setItem('candidate', ${x})">
+              <img src="images/placeholder-image.jpg">
+            </a>
+            <figcaption>${candidates["data"][x]["Candidate_LastName"]}</figcaption>
+          </figure>`;
+          // console.log(nameList[x]);
+        }
+          // text += "</select>"
+        document.getElementById("candidate-gallery").innerHTML = text;
       }
-        // text += "</select>"
-      document.getElementById("candidate-gallery").innerHTML = text;
+
     }
 
     if(document.getElementById("candidate-header") !== null){
-      function find(data, category, table){
-        for (let i in table){
-          console.log(category);
-          if (table[i][category] === data){
-            return i;
-          }
-        }
-        return -1;
-      };
       let x = localStorage.getItem("candidate");
       document.getElementById("candidate-last-name").innerHTML = `<span id="candidate-number">${candidates["data"][x]["Ballot_Number"]} </span>${candidates["data"][x]["Candidate_LastName"]}`;
       document.getElementById("candidate-first-name").innerHTML = candidates["data"][x]["Candidate_FirstName"];
