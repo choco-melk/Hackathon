@@ -216,7 +216,10 @@ h5 {
   #candidate-post {
     font-weight: var(--bold);
   }
-  
+  #stance-container {
+    font-weight: var(--bold);
+    font-size: 1.2rem;
+  }
   #stance-container, #stance-list-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -381,6 +384,9 @@ h5 {
       h2 {
         font-size: 1.8rem;
       }
+    }
+    #candidate-number {
+      margin: 0;
     }
     #candidate-last-name {
       text-align: center;
