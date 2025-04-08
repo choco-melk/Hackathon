@@ -194,8 +194,8 @@ h5 {
     }
     #candidate-header-container {
       display: flex;
-      justify-content: left;
-
+      flex-direction: column;
+      align-items: start;
     }
     #candidate-number {
       display: flex;
