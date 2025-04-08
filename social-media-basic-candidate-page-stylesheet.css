@@ -40,27 +40,12 @@
     text-wrap: balance;
   }
 
-  ul{
-    margin-top: 60px;
-    border-radius: 10px;
-    background-color: #2B2B2B;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    width: 250px;
-  }
-  
-  li{
-    list-style-type: none;
-    font-weight: 600;
-    line-height: 3em;
-  }
-
 /*
  * General Webpage Styles
  * These are styles that will be used by multiple webpages
  */
 :root {
-  --primary: #1B1B1B;
+  --primary: #1b1b1b;
   --secondary: #D9D9D9; 
   --accent-1: #1E1E1E;
   --accent-2: #2B2B2B;
@@ -164,8 +149,8 @@ h5 {
     }
 
     img {
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
     }
   }
 }
@@ -200,16 +185,41 @@ h5 {
     margin: 50px;
     background-color: #2B2B2B;
     img {
-      width: 200px;
-      height: 200px;
-      margin-right: 50px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
     }
     h2 {
       font-size: 3rem;
     }
+
+    #candidate-header-container {
+      display: block;
+    }
+    #candidate-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      background-color: #0A0A0A ;
+      font-size: 1.7rem;
+      font-weight: var(--bold);
+    }
+    p {
+      font-size: 1.5rem;
+    }
   } 
-  
+ 
+  #candidate-post {
+    font-weight: var(--bold);
+  }
+  #stance-container {
+    font-weight: var(--bold);
+    font-size: 1.2rem;
+  }
   #stance-container, #stance-list-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -235,6 +245,20 @@ h5 {
     height: 40px;
     padding: 10px;
     border-radius: 10px;
+  }
+  ul{
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #2B2B2B;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    width: 250px;
+  }
+  
+  li{
+    list-style-type: none;
+    font-weight: 600;
+    line-height: 3em;
   }
 }
 
@@ -269,14 +293,15 @@ h5 {
     width: auto;
     margin: auto;
     form {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: auto;
       input {
         width: clamp(300px, 60%, 50ch);
       }
       ul {
         margin-top: 30px;
-        margin-left: 8%;
       }
     }
   }
@@ -301,7 +326,7 @@ h5 {
 
     #candidate-header {
       display: flex;
-      justify-content: left;
+      justify-content: space-around;
       padding: 1em;
       margin: 0px;
       margin-top: 30px;
@@ -316,10 +341,9 @@ h5 {
 
       #candidate-header-information {
         div {
-          display: grid;
-          grid-template-columns: 1fr;
           align-items: center;
         }
+
         .light-button {
           display: flex;
           justify-content: center;
@@ -330,7 +354,6 @@ h5 {
         }
       }    
     }            
-  
   }
 }
 
@@ -362,7 +385,13 @@ h5 {
         font-size: 1.8rem;
       }
     }
-    
+    #candidate-number {
+      display: block;
+      margin: 0 auto;
+    }
+    #candidate-last-name {
+      text-align: center;
+    }
     #candidate-header {
       flex-direction: column;
       align-items: center;
@@ -370,5 +399,10 @@ h5 {
         margin: 20px 0;
       }
     }
+    #candidate-header-information {
+      div {
+       justify-items: center;
+      }
+    }    
   }
 } 
