@@ -2,7 +2,7 @@
 
 WHAT IS IT: Interactive Social Media with Candidate Voting Webapp
 
-This is a simple and responsive political web app that allows users to explore, take a political test, and view and search for other candidates that may/may not be politically aligned to users that are stored in an external file (`candidate-list.json`). It filters  results as you type and shows a maximum of 5 matches at a time. The layout will not overwhelm users as to what users are looking for in a political social media webapp.
+This is a simple and responsive political web app that allows users to explore, take a political test, and view and search for other candidates that may/may not be politically aligned to users that are stored in an external file (`candidate-list.json`). It filters  results as you type and shows a maximum of 5 matches at a time. This layout will not overwhelm users as to what users are looking for in a political social media webapp.
 
 ## Features
 - 🔍 Live search functionality
