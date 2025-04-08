@@ -12,6 +12,10 @@
 
 // gin-comment ko lang kay amu ni ang nagpa-hold back sa search function hehe
 
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD){
+  localStorage.removeItem("user_votes")
+}
+
 let database = [];
 let candidates = [];
 let partylists = [];
